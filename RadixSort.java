@@ -1,6 +1,12 @@
 /* 
-	Author: Zihan Ye
-	Data: 2017.07.15
+   RadixSort.java :  Sort 1,000,000 integers with O(k*n) time complexity.
+					 k is the largest digits of the maximum value being sorted.
+					 (i.e. k = 6 for 1,000,000 integers)
+
+   Author	: Zihan Ye
+   Date		: 2017.07.15
+   GitHub	: https://github.com/Aceyee
+   Email	: zaeye1028@gmail.com
 */
 import java.util.Scanner;
 import java.util.Vector;
@@ -62,13 +68,7 @@ public class RadixSort{
 			n*=K;
 		}
 	}
-	
-	/* main()
-	   Contains code to test the HeapSort function. Nothing in this function
-	   will be marked. You are free to change the provided code to test your
-	   implementation, but only the contents of the HeapSort() function above
-	   will be considered during marking.
-	*/
+
 	public static void main(String[] args){
 		Scanner s;
 		if (args.length > 0){
