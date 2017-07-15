@@ -10,7 +10,23 @@ import java.io.File;
 
 //Do not change the name of the HeapSort class
 public class ComplexityTester{
+	static Sort algorithm;
+	public static String check(int choice, int []array){
+		switch(choice){
+			case 1:
+				algorithm = new RadixSort(array);
+				
+				return "Radix Sort";
+			case 2:
+				return "Heap Sort";
+			default:
+				return "Invalid Number";
+		}
+	}
 	public static void main(String[] args){
+		System.out.printf("\n");
+		System.out.printf("Welcome to Zihan's Complexity Tester\n");
+		System.out.printf("\n");
 		Scanner s;
 		if (args.length > 0){
 			try{
@@ -24,18 +40,6 @@ public class ComplexityTester{
 			s = new Scanner(System.in);
 			System.out.printf("Enter a list of non-negative integers. Enter a negative value to end the list.\n");
 		}
-		System.out.printf("************************************\n");
-		System.out.printf("Welcome to Zihan's Complexity Tester\n");
-		System.out.printf("************************************\n");
-		System.out.printf("\n");
-		System.out.printf("Radix Sort: \t1\n");
-		System.out.printf("Heap Sort: \t2\n");
-		System.out.printf("\n");
-
-		System.out.printf("Please input your choice:\n");
-		Scanner sc = new Scanner(System.in);
-		int choice = sc.nextInt();
-		System.out.println("You have chose "+ choice);
 
 		Vector<Integer> inputVector = new Vector<Integer>();
 
@@ -49,11 +53,23 @@ public class ComplexityTester{
 			array[i] = inputVector.get(i);
 
 		System.out.printf("Read %d values.\n",array.length);
+		System.out.printf("\n");
+		System.out.printf("Please choose a algorithm: \n");
+		System.out.printf("\n");
+		System.out.printf("Radix Sort: \t1\n");
+		System.out.printf("Heap Sort: \t2\n");
+		System.out.printf("\n");
 
+		System.out.printf("Please input your choice: ");
+		Scanner sc = new Scanner(System.in);
+		int choice = sc.nextInt();
+		
+		System.out.printf("You have chose %s: %s\n", choice, check(choice, array));
 
 		long startTime = System.currentTimeMillis();
 
 		//array = RadixSort(array);
+		algorithm.sort();
 
 		long endTime = System.currentTimeMillis();
 
