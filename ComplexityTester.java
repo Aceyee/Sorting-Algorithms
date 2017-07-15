@@ -15,12 +15,20 @@ public class ComplexityTester{
 		switch(choice){
 			case 1:
 				algorithm = new RadixSort(array);
-				
 				return "Radix Sort";
 			case 2:
+				algorithm = new HeapSort(array);
 				return "Heap Sort";
+			case 3:
+				algorithm = new CountingSort(array);
+				return "Counting Sort";
+			case 4:
+				algorithm = new QuickSort(array);
+				return "Quick Sort";
 			default:
-				return "Invalid Number";
+				System.out.println("Invalid Number. Exiting the tester...");
+				System.exit(-1);
+				return "";
 		}
 	}
 	public static void main(String[] args){
@@ -58,17 +66,18 @@ public class ComplexityTester{
 		System.out.printf("\n");
 		System.out.printf("Radix Sort: \t1\n");
 		System.out.printf("Heap Sort: \t2\n");
+		System.out.printf("Counting Sort: \t3\n");
+		System.out.printf("Quick Sort: \t4\n");
 		System.out.printf("\n");
 
 		System.out.printf("Please input your choice: ");
 		Scanner sc = new Scanner(System.in);
 		int choice = sc.nextInt();
-		
+		//int choice = 4;
 		System.out.printf("You have chose %s: %s\n", choice, check(choice, array));
 
 		long startTime = System.currentTimeMillis();
 
-		//array = RadixSort(array);
 		algorithm.sort();
 
 		long endTime = System.currentTimeMillis();
